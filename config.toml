@@ -1,0 +1,6 @@
+mode = "project"
+project = "tbg-wav2mov"
+
+
+[dirs]
+project = ["./"]

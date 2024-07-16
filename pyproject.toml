@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tbg-wav2mov"
+dynamic = ["version"]
+description = 'A python library to convert wav files to mov files. Used in The Bracers Guild Podcast software tooling systems.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "Apache-2.0 OR MIT"
+
+dependencies = [
+  "pillow~=2.2.1",
+  "numpy~=2.0.0"
+]
+
+[[project.authors]]
+name="Alexander"
+email="al.willet02@gmail.com"
+
+# Tools
+
+[tool.hatch]
+version = {path="src/tbg-wav2mov/__about__.py"}
+
+# Environment
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest",
+]
+
+# Builds
+
+[tool.hatch.build.targets.wheel]
+packages=["src/tbg-wav2mov"]
