@@ -1,37 +1,39 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[project]
+[tool.poetry]
 name = "tbg-wav2mov"
-dynamic = ["version"]
-description = 'A python library to convert wav files to mov files. Used in The Bracers Guild Podcast software tooling systems.'
-readme = "README.md"
-requires-python = ">=3.8"
-license = "Apache-2.0 OR MIT"
+version = "0.1.0"
+description = "A python library to convert wav files to mov files. Used in The Bracers Guild Podcast software tooling systems."
+authors = ["Alexander Williams-Letondre <al.willet02@gmail.com>"]
+license = "MIT OR Apache Version 2.0"
 
-dependencies = [
-  "pillow~=2.2.1",
-  "numpy~=2.0.0"
+[tool.poetry.dependencies]
+python = "^3.10"
+pillow = "^2.2.1"
+numpy = "^2.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+pyright = "^1.1.239"
+pytest = "^7.0.1"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint."messages control"]
+disable = "all"
+enable = [
+    "empty-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring"
 ]
 
-[[project.authors]]
-name="Alexander"
-email="al.willet02@gmail.com"
+[tool.black]
+line-length = 120
+target-version = ['py38']
 
-# Tools
-
-[tool.hatch]
-version = {path="src/tbg-wav2mov/__about__.py"}
-
-# Environment
-
-[tool.hatch.envs.test]
-dependencies = [
-  "pytest",
-]
-
-# Builds
-
-[tool.hatch.build.targets.wheel]
-packages=["src/tbg-wav2mov"]
+[tool.isort]
+profile = "black"
+line-length = 120
