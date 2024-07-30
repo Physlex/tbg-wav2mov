@@ -1,4 +1,4 @@
-from wav2mov import TestType
+from src import TestType
 
 if __name__ == "__main__":
     print("Hello, world!")

@@ -3,4 +3,3 @@
 
 from .core.core import TestType
 
-
